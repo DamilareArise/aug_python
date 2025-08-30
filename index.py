@@ -269,6 +269,12 @@ else:
 # ASSIGNMENT
 # 1. Complete the ussd app.
 # 2. Build a grading system
+       # 70 - 100 ->  A
+       # 60 - 69 ->  B
+       # 50 - 59 ->  C
+       # 45 - 49 ->  D
+       # 40 - 44 ->  E
+       # 0 - 39 ->  F
 
 
 # class work

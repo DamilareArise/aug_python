@@ -223,8 +223,8 @@ val2 = 2
 rice = False
 beans = False
 
-if rice and beans:
-    print('I got what you asked for')
+# if rice and beans:
+#     print('I got what you asked for')
     
 # elif rice:
 #     print('I will buy rice becuase there is no rice and beans')
@@ -235,47 +235,165 @@ if rice and beans:
 # elif rice or beans:
 #     print('I got just one of the demand')
 
-elif rice or beans:
-    if rice:
-        print('I got just rice')
-    else:
-        print('I got just beans')
+# elif rice or beans:
+#     if rice:
+#         print('I got just rice')
+#     else:
+#         print('I got just beans')
     
-else:
-    print('Market dry oo')
+# else:
+#     print('Market dry oo')
     
     
 # an USSD application
-code = input('Enter ussd code: ')
-if code == '*312#':
-    print('''
-        1. Data plan
-        2. Check balance
-        #. Exit 
-    ''')
-    choice = input('Choice: ')
-    if choice == '1':
-        print('Data plan')
-    elif choice == '2':
-        print('Check balance')
-    elif choice == '#':
-        print('Goodbye!')
-    else:
-        print('Invalid Option')
-else:
-    print('Invalid ussd code. Try again!')
+# code = input('Enter ussd code: ')
+# if code == '*312#':
+#     print('''
+#         1. Data plan
+#         2. Check balance
+#         #. Exit 
+#     ''')
+#     choice = input('Choice: ')
+#     if choice == '1':
+#         print('Data plan')
+#     elif choice == '2':
+#         print('Check balance')
+#     elif choice == '#':
+#         print('Goodbye!')
+#     else:
+#         print('Invalid Option')
+# else:
+#     print('Invalid ussd code. Try again!')
 
 
 # ASSIGNMENT
 # 1. Complete the ussd app.
 # 2. Build a grading system
-       # 70 - 100 ->  A
-       # 60 - 69 ->  B
-       # 50 - 59 ->  C
-       # 45 - 49 ->  D
-       # 40 - 44 ->  E
-       # 0 - 39 ->  F
+#        70 - 100 ->  A
+#        60 - 69 ->  B
+#        50 - 59 ->  C
+#        45 - 49 ->  D
+#        40 - 44 ->  E
+#        0 - 39 ->  F
 
 
 # class work
 # build an app that differentiate between odd and even numbers 
+
+# x = range(0, 11)
+# print(2.5 in x)
+
+
+# Python strings
+# Python Collections
+# Python Loops
+
+val = "Hello world" # ['H', 'e', 'L'...,'d']
+# print(type(val))
+# print(len(val))
+# print(val[0])
+# print(val[-1])
+
+# slicing
+# print(val[0:3])
+# print(val[:5])
+# print(val[-5:])
+# print(val[3:8])
+
+# val[0] = 'h' #TypeError
+
+# print(val.upper())
+# print(val.lower())
+# print(val.capitalize())
+# print(val.title())
+
+# user = input('Press yes to continue and no to quit: ').strip()
+# if user.lower() == 'yes':
+#     print('continue', user)
+# else:
+#     print('Bye bye')
+
+
+# val = "../Hello   world//"
+# print(val.strip())
+# print(val.rstrip())
+# print(val.strip("./"))
+# val.strip()
+
+
+# val = "Hello   world" 
+# splitted = val.split()
+# print(" ".join(splitted))
+
+# val = "Hello world. You are in python class. Enjoy." 
+# splitted = val.split('.')
+# print(splitted)
+# print(" + ".join(splitted))
+
+val = "Hello world"
+# print(val.startswith('h'))
+# print(val.endswith('world'))
+
+# print(val.find('l', 3, 5))
+# print(val.find('work'))
+
+# email = input('Email: ').strip().lower()
+# if email.find('@') == -1 or email.find('.') == -1:
+#     print('Invalid email')
+
+
+# \, 
+# \n -> next line
+# \t -> tab
+# \r -> return
+# \b -> backspace
+
+# print('it\'s mine')
+# print('it mine\\\\fwhat about yours?')
+# print(r'it mine\\\\fwhat about yours?')
+
+# class work
+# build a word counter.
+
+
+# python collections or arrays
+# 1. List :- Changeable/mutable, Indexed, accepts duplicate, ordered
+mlist = ['Benz', 'Toyota', 'Nissan', 'Audi', 'Audi', 'Mazda', 'BMW']
+# print(mlist)
+
+# print(mlist[0])
+# print(mlist[-1])
+# print(mlist[5:])
+# print(mlist[1][0])
+# print(mlist[1][1])
+
+# mlist[0] = 'Benzo'
+# print(mlist)
+
+# mlist.append('Ford')
+# mlist.extend(["Ford", "Volks"])
+# print(mlist.pop(5))
+# mlist.remove('Benz')
+# mlist.insert(0, 'Ford')
+# print(mlist.count("Audi"))
+# print(mlist)
+
+# Loop -> For loop & while loop
+
+# num = [1, 2, 3]
+# for x in num:
+#     print(x)
+
+# for x in range(1, 6):
+#     print('Welcome', x)
+
+
+# 2. Tuple
+# 3. Set
+# 4. Dictionary
+
+# class work
+# build a word counter.
+
+# Assignments
+# Build CBT application.

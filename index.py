@@ -397,3 +397,162 @@ mlist = ['Benz', 'Toyota', 'Nissan', 'Audi', 'Audi', 'Mazda', 'BMW']
 
 # Assignments
 # Build CBT application.
+
+# score = 0
+# ques1 = input('What is the capital of lagos state a.) Ikeja b.) Mowe c.) Akure: ').strip()
+# if ques1.lower() == 'a':
+#     print('Correct')
+#     score += 1
+# else:
+#     print('You no sabi anything...')
+    
+
+# Todo app
+# 1. create/add todo
+# 2. edit todo
+# 3. delete 
+# 4. clear all
+# 5. read all
+
+all_todo = []
+
+# count = 5
+# for i in range(count):
+#     print(f'You can only add up to 5 todos. {count} left')
+    
+#     todo = input('Enter todo: ').strip()
+#     all_todo.append(todo)
+#     count -= 1
+
+#     user = input('Press enter to continue or 1 to stop: ')
+#     if user == '1':
+#         break
+        
+# print(all_todo)
+
+# user = input('''
+#     1. add todo
+#     2. edit todo
+#     3. delete todo
+#     4. clear all
+#     5. view todo 
+# : ''')
+# if user == '1':
+
+
+# while loop 
+
+x = 5 
+# while x > 0:
+#     print(x)
+#     x-=1
+
+# count = 5
+# while count > 0:
+#     print(f'You can only add up to 5 todos. {count} left')
+    
+#     todo = input('Enter todo: ').strip()
+#     all_todo.append(todo)
+#     count -= 1
+
+#     user = input('Press enter to continue or 1 to stop: ')
+#     if user == '1':
+#         break
+
+
+# x = 0
+
+# while x <= 10:
+#     print(x)
+#     x += 1
+
+
+# all_todo = []
+# while True:
+#     user = input('''
+#         1. add todo
+#         2. edit todo
+#         3. delete todo
+#         4. clear all
+#         5. view todo 
+#         #. exit
+        
+#     choice: ''')
+    
+#     if user == '1':
+#         todo = input('Enter todo: ').strip()
+#         all_todo.append(todo)
+#         print('Todo added successfully')
+        
+#     elif user == '2':
+#         no = int(input('Edit todo at number: '))
+#         if no > len(all_todo):
+#             print('Number out of range')
+#             continue
+        
+#         all_todo.pop(no-1)
+#         new = input('Replacement: ').strip()
+#         all_todo.insert(no-1, new)
+#         print('Todo edited successfully')
+        
+#     elif user == '3':
+#         no = int(input('Delete todo at number: '))
+#         if no > len(all_todo):
+#             print('Number out of range')
+#             continue
+            
+#         confirm = input('Are you sure? (y/n): ').strip()
+#         if confirm.lower() == 'y':
+#             all_todo.pop(no-1)
+#             print('Todo deleted successfully')
+        
+        
+#     elif user == '4':
+#         confirm = input('Are you sure? (y/n): ').strip()
+#         if confirm.lower() == 'y':
+#             all_todo.clear()
+#             print('Todo cleared')
+        
+        
+#     elif user == '5':
+#         # print(all_todo)
+#         for no, todo in enumerate(all_todo, 1):
+#             print(f"{no}. {todo}")
+            
+#     elif user == '#':
+#         exit()
+#     else:
+#         print('Invalid response')
+        
+
+
+scores = [10, 20, 10, 20]
+# print(sum(scores))
+# print(max(scores))
+# print(min(scores))
+
+# print(sum(scores)/len(scores))
+# print(scores.count(10))
+
+# products = ['Bag', 'Shoe', 'lipstick']
+# price = [100, 200, 50]
+# for product, price in zip(products, price):
+#     print(f"{product} -> #{price}")
+
+questions = [
+    '1. What is the capital of  japan a. London b. Ikeja c.Tokyo',
+    '2. What is 2 + 2  a. 4 b. 7'
+]
+
+answers = ['c', 'a']
+mark = [10, 5]
+
+# class work
+# Do a multiplication table using forloop
+
+# assignment
+# 1. ask the user the amount of student taking the test
+# 2. register the students
+# 3. call them out them out one after the other to take the test
+# 4. print out the students that has the max score and min score
+# 5. print the avarage score

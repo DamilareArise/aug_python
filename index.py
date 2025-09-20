@@ -556,3 +556,148 @@ mark = [10, 5]
 # 3. call them out them out one after the other to take the test
 # 4. print out the students that has the max score and min score
 # 5. print the avarage score
+
+
+# Python Tuple; indexed, allows duplicate, ordered, immutable/unchangeable
+
+fruits = ('banana', 'mango', 'apple', 'apple', 'orange')
+# print(fruits[2])
+# fruits[2] = 'pineapple'
+
+# print(fruits.index('apple', 3))
+# print(fruits.count('apple'))
+
+# unpacking 
+
+# items = [
+#     ('banana', 500),
+#     ('apple', 700),
+#     ('orange', 1000)
+# ]
+# for fruit, price in items:
+#     print(price)
+
+# set; can't indexed, doesn't allow duplicate, not ordered, immutable
+setA = {'banana', 'mango', 'apple', 'apple', 'orange'}
+# setA.add('cherry')
+# setA.pop()
+# setA.update(['cherry', 'Pineapple'])
+# setA.remove('Banana')
+# setA.discard('Banana')
+
+setA = {1, 2, 3, 4, 5, 6, 7 }
+setB = {1, 2, 8, 9}
+setC = {1, 2, 3}
+
+# setA.union(setB).union(setC)
+
+# print(setA.union(setB))
+# print(setA.intersection(setB))
+# print(setA.difference(setB))
+# print(setA - setB)
+# setA.intersection_update(setB)
+# print(setA.symmetric_difference(setB))
+# print(setA.isdisjoint(setB))
+# print(setA.issuperset(setC))
+# print(setC.issubset(setA))
+# print(setA)
+
+# dictionary; 
+car = {
+    'brand': 'Lexus',
+    'model': 'es350',
+    'color': 'black',
+    'sold': True,
+    'owner': {
+        'name': 'Ayomide',
+        'age': 30,
+        'gender': 'male',
+        'address': {
+            'street': 'Ojo housing',
+            'city': 'Abeokuta',
+            'state': 'Ogun state'
+        }
+    }
+}
+
+# print(car['owner']['address']['city'])
+# print(car.keys())
+# print(car.values())
+# print(car.items())
+
+# for key, val in car.items():
+#     print(val)
+
+# car['brand'] = 'Benz'
+# car['Brand'] = 'Benz'
+# print(car)
+
+# car.update({'brand': 'Benz'})
+# print(car.get('Brand', 'Not Found'))
+# car.pop('brand')
+# print(car)
+
+
+
+# python functions
+# stages
+# 1. declaration
+# 2. definition
+# 3. invocation
+
+# types
+# 1. parametized
+# 2. unparametized
+
+def screamHello():
+    print('screaming helloooo!!!!')
+    
+# screamHello()
+
+def hello(name):
+    print(f'Hello {name}')
+    
+# hello('Ayo')
+
+def add(a, b=10):
+    print(f'result: {a+b}')
+    
+# add(10, 5)
+
+# return function
+
+def add(a:float, b:float|None = 10) -> float:
+    """
+    This is a function that performs addition operation
+    """
+    return a+b
+
+# print(add(2, 4))
+
+def sub(a, b):
+    return a - b
+
+def exec(a, b):
+    result = add(a, b) * sub(a, b)
+    return result
+
+# print(f"Your answer is {exec(10, 5)}")
+
+
+
+# global and local variable
+
+x = 10 # global
+
+def add():
+    global a
+    
+    a = 3 # local
+    return a + x
+
+def exec():
+    print(x + a)
+
+add()
+exec()
+

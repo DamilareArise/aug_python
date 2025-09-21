@@ -698,6 +698,8 @@ def add():
 def exec():
     print(x + a)
 
-add()
-exec()
+# add()
+# exec()
 
+
+# 

@@ -1,15 +1,32 @@
 from random import randint 
-
-def shout():
-    return 'Shouting'
+import mysql.connector as sql
 
 
 class BankConfig:
-    __database = []
     __bank_name = None
+    __host='127.0.0.1'
+    __port='3306'
+    __user='root'
+    __password=''
+    __database=None
+    __conn=None
+    __cursor=None
     
-    def __init__(self, name):
+    def __init__(self, name, db_name, db_pass):
         self.__bank_name = name
+        self.__database = db_name
+        self.__password = db_pass
+        
+        # create connection
+        self.__conn = sql.connect(
+            host=self.__host,
+            port=self.__port,
+            user=self.__user,
+            password=self.__password,
+            database=self.__database
+        )
+        self.__conn.autocommit = True
+        self.__cursor = self.__conn.cursor()
         
     def createAccount(self, fullname, email, pass1, pass2):
         if pass1 != pass2:
@@ -20,14 +37,10 @@ class BankConfig:
         else:
             account_no = randint(1000000000, 1099999999)
             
-            user = {
-                'fullname': fullname,
-                'email': email,
-                'password': pass1,
-                'account_no': account_no,
-                'balance': 0.0
-            }
-            self.__database.append(user)
+            query = 'INSERT INTO customer_table(fullname, email, password, account_no) VALUES(%s, %s, %s, %s)'
+            values = (fullname, email, pass1, account_no)
+            self.__cursor.execute(query, values)
+        
             return {
                 'status': True,
                 'message': 'Registration successfull'

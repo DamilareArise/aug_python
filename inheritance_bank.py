@@ -2,8 +2,8 @@ from config.bank_config import BankConfig
 
 class UbaConfig(BankConfig):
     
-    def __init__(self, name):
-        super().__init__(name) 
+    def __init__(self, name, db_name, db_pass):
+        super().__init__(name, db_name, db_pass) 
         
     def home(self):
         print(f'''
@@ -106,4 +106,5 @@ class UbaConfig(BankConfig):
     
 
 
-uba = UbaConfig('UBA')
+uba = UbaConfig('UBA', 'august_db', 'password')
+uba.home()

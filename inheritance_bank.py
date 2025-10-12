@@ -61,25 +61,27 @@ class UbaConfig(BankConfig):
             self.signin()
     
     
-    def dashboard(self, user:dict):
+    def dashboard(self, user):
         print(f"""
-        Welcome back {user['fullname']}
-        account number: {user['account_no']}
-        account balance: {user['balance']}
+        
+        Welcome back {user[1]}
+        account number: {user[4]}
+        account balance: ${user[5]}
         
         1. Deposit
         2. Withdraw
         3. Transfer
-        4. Back to home
+        4. Change password
+        #. Back to home
         """)
         
         choice = input('Choice: ')
         if choice == '1':
-            self.__deposit(user['email'])
+            self.__deposit(user[2])
         elif choice == '2':
-            self.withdraw()
+            self.withdraw(user[2])
             
-        elif choice == '4':
+        elif choice == '#':
             self.home()
         else:
             print('Invalid input')
@@ -87,7 +89,12 @@ class UbaConfig(BankConfig):
             
     def __deposit(self, email):
         print('Deposit')
-        amount = float(input('Amount: '))
+        try:
+            amount = float(input('Amount: '))
+        except ValueError as v:
+            print('Input a number not an alphabet')
+            self.home()
+            
         result = self.performDeposit(email, amount)
         message = result['message']
         if result['status']:
@@ -98,8 +105,20 @@ class UbaConfig(BankConfig):
             print(message)
             self.home()
     
-    def withdraw():
-        pass
+    def withdraw(self, email):
+        print('Withdraw')
+        amount = float(input('Amount: '))
+        result = self.performWithdraw(email, amount)
+        message = result['message']
+        if result['status']:
+            print(message)
+            user = result['data']
+            self.dashboard(user)
+        else:
+            print(message)
+            self.home()
+    
+    
     
     
        

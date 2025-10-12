@@ -48,36 +48,92 @@ class BankConfig:
         
     
     def login(self, email, password):
-        
-        for user in self.__database:
-            if user['email'] == email and user['password'] == password:
-                return {
-                    'status': True,
-                    'message': 'Login successfull',
-                    "data": user
-                }
-                
-        return {
-            'status': False,
-            'message': 'Invalid Email or Password'
-        }   
-        
+        query = "SELECT * FROM customer_table WHERE email=%s AND password=%s"
+        values = (email, password)
+        self.__cursor.execute(query, values)
+        user = self.__cursor.fetchone()
+        if user: 
+            return {
+                'status': True,
+                'message': 'Login successfull',
+                "data": user
+            }
+        else:       
+            return {
+                'status': False,
+                'message': 'Invalid Email or Password'
+            }   
+    
+    def fetchUser(self, email):
+        query = 'SELECT * FROM customer_table WHERE email=%s'
+        value = (email,)
+        self.__cursor.execute(query, value)
+        user = self.__cursor.fetchone()
+        return user
+    
+    def updateBalance(self, email, balance):
+        query = 'UPDATE customer_table SET account_balance=%s WHERE email=%s'
+        values = (balance, email)
+        self.__cursor.execute(query, values)
+        return True
     
     def performDeposit(self, email, amount:float):
-        for user in self.__database:
-            if user['email'] == email:
-                user['balance'] += amount
-                return {
-                    'status': True,
-                    'message': f'{amount} deposited successfully',
-                    'data': user
-                }
+        if amount <= 0:
+            return {
+                'status': False,
+                "message": "Invalid amount"
+            }
+            
+        user = self.fetchUser(email)
+        if user:
+            balance = user[5] 
+            new_balance = float(balance) + amount
+            self.updateBalance(email, new_balance)
+            
+            user = self.fetchUser(email)
+        
+            return {
+                'status': True,
+                'message': f'{amount} deposited successfully',
+                'data': user
+            }
         
         return {
             'status': False,
             'message': f'User not found',
         }
-                   
+          
+    def performWithdraw(self, email, amount):
+        if amount <= 0:
+            return {
+                'status': False,
+                "message": "Invalid amount"
+            }
+        
+        user = self.fetchUser(email)
+        if user:
+            balance = user[5]
+            if balance < amount:
+                return {
+                    'status': False,
+                    'message': f'Insufficient Fund',
+                }
+                    
+            new_balance = float(balance) - amount
+            self.updateBalance(email, new_balance)
+            
+            user = self.fetchUser(email)
+        
+            return {
+                'status': True,
+                'message': f'{amount} Withdrawn successfully',
+                'data': user
+            }
+        
+        return {
+            'status': False,
+            'message': f'User not found',
+        }
              
         
     def getBankName(self):

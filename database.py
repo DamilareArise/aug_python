@@ -18,6 +18,16 @@
 # 2. One to many e.g user and product table
 # 3. many to many e.g order table, user table, product table
 
+"""
+ECOMMERCE APP
+
+product management - one many / many to many  between product and product category 
+user management
+order management
+
+"""
+
+
 
 import mysql.connector as sql
 

@@ -258,3 +258,27 @@ INSERT INTO product_category (product_id, category_id) VALUES
 (83, 5), (83, 2),
 (84, 5),
 (85, 5), (85, 2);
+
+
+
+SELECT * FROM product;
+SELECT title, quantity, price FROM product;
+SELECT title, quantity as `quantity left`, price FROM product;
+SELECT title, quantity `quantity left`, price FROM product;
+SELECT title, quantity, price FROM product WHERE id = 10;
+SELECT title, quantity, price FROM product WHERE quantity <= 15;
+SELECT COUNT(*) as `No of product qty less than 15` FROM product WHERE quantity <= 15;
+SELECT title, quantity FROM product WHERE quantity <= 15 ORDER BY quantity ASC;
+SELECT title, quantity FROM product WHERE quantity <= 15 ORDER BY quantity DESC;
+SELECT title, price FROM product ORDER BY price DESC LIMIT 5;
+SELECT SUM(quantity) FROM product;
+SELECT * FROM product WHERE title LIKE 'L%';
+SELECT * FROM product WHERE title LIKE '%L';
+SELECT * FROM product WHERE title LIKE '%La%';
+SELECT * FROM product WHERE price BETWEEN 100000 AND 300000;
+SELECT * FROM `users` u LEFT JOIN user_profile p ON u.id = p.user_id;
+SELECT u.id,  CONCAT(u.firstname, ' ', u.lastname) as fullname, u.email, p.gender, p.passport FROM `users` u LEFT JOIN user_profile p ON u.id = p.user_id;
+SELECT u.id, u.firstname, u.lastname, u.email, r.name role  FROM users u JOIN roles r ON u.role_id = r.id;
+SELECT r.name, COUNT(*) FROM users u JOIN roles r ON u.role_id = r.id GROUP BY r.name;
+SELECT p.id, p.title, p.quantity,p.price, c.name as category FROM product p JOIN product_category pc ON p.id = pc.product_id JOIN category as c ON pc.category_id = c.id;
+SELECT c.name, COUNT(*) as total_product FROM product p JOIN product_category pc ON p.id = pc.product_id JOIN category as c ON pc.category_id = c.id GROUP BY c.name;
